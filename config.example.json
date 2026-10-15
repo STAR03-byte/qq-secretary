@@ -1,0 +1,62 @@
+{
+  "llm": {
+    "api_url": "https://api.deepseek.com/chat/completions",
+    "api_key": "YOUR_LLM_API_KEY",
+    "model": "deepseek-chat",
+    "timeout": 30
+  },
+  "wecom": {
+    "webhook_url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_WECOM_BOT_KEY"
+  },
+  "user_profile": {
+    "name": "Star",
+    "identity": "学生/开发者",
+    "focus": [
+      "辅导员/导师通知",
+      "课程作业与实验要求",
+      "项目组长任务分派",
+      "明确时间节点的DDL",
+      "紧急突发事务",
+      "明确@我或私聊的消息"
+    ],
+    "ignore": [
+      "游戏开黑邀约",
+      "拼单/外卖/吃喝闲聊",
+      "水群日常调侃与玩梗",
+      "群内刷屏复读",
+      "纯表情与无意义问候"
+    ]
+  },
+  "filter_rules": {
+    "watch_keywords": [],
+    "force_keywords": [
+      "@全体成员",
+      "@all",
+      "紧急",
+      "截止",
+      "立刻",
+      "马上",
+      "交作业",
+      "开会",
+      "@Star"
+    ],
+    "ignore_titles": [
+      "QQ正在后台运行",
+      "语音通话",
+      "视频通话",
+      "正在录音",
+      "文件传输",
+      "我的电脑"
+    ]
+  },
+  "schedule": {
+    "buffer_seconds": 35,
+    "max_buffer_seconds": 90,
+    "deferred_max_count": 4,
+    "deferred_cron_times": [
+      "12:15",
+      "18:15"
+    ],
+    "daily_report_time": "22:30"
+  }
+}

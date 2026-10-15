@@ -134,7 +134,9 @@ cp config.example.json config.json
 nano config.json
 ```
 修改关键配置：
-- `llm.api_key`：您的大模型 API 密钥（如 DeepSeek、SiliconFlow 等）。
+- `llm.api_url`：默认预设为小米 MiMo 接口 `https://api.xiaomimimo.com/v1/chat/completions`（若使用 Token Plan 可填 `https://token-plan-cn.xiaomimimo.com/v1/chat/completions`；亦支持自动补全 `/chat/completions`）。
+- `llm.model`：推荐 `mimo-v2.6-flash`（高性价比推理）或 `mimo-v2.6-pro`（全模态旗舰）。
+- `llm.api_key`：您在小米开放平台申请的 API Key（`sk-xxx` 或 Token Plan 的 `tp-xxx`）。
 - `wecom.webhook_url`：企业微信机器人的 Webhook 地址。
 - `user_profile`：主人姓名、身份以及关注偏好。
 

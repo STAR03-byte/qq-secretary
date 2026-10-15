@@ -1,8 +1,8 @@
 {
   "llm": {
-    "api_url": "https://api.deepseek.com/chat/completions",
-    "api_key": "YOUR_LLM_API_KEY",
-    "model": "deepseek-chat",
+    "api_url": "https://api.xiaomimimo.com/v1/chat/completions",
+    "api_key": "YOUR_MIMO_API_KEY",
+    "model": "mimo-v2.6-flash",
     "timeout": 30
   },
   "wecom": {

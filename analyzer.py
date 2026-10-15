@@ -39,6 +39,18 @@ def _load_config_data(config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]
         }
 
 
+def _normalize_api_url(url: str) -> str:
+    """标准化 API URL，自动适配 base_url (如 https://api.xiaomimimo.com/v1)"""
+    url = (url or "").strip()
+    if not url:
+        return "https://api.xiaomimimo.com/v1/chat/completions"
+    if url.endswith("/chat/completions"):
+        return url
+    if url.endswith("/"):
+        url = url[:-1]
+    return f"{url}/chat/completions"
+
+
 def _clean_json_response(raw_text: str) -> str:
     """提取大模型输出中的 JSON 字符串，剥离 Markdown 代码块"""
     text = raw_text.strip()
@@ -69,9 +81,9 @@ def analyze_messages(
     llm_cfg = cfg.get("llm", {})
     user_profile = cfg.get("user_profile", {})
 
-    api_url = llm_cfg.get("api_url", "https://api.deepseek.com/chat/completions")
+    api_url = _normalize_api_url(llm_cfg.get("api_url", "https://api.xiaomimimo.com/v1/chat/completions"))
     api_key = llm_cfg.get("api_key", "")
-    model = llm_cfg.get("model", "deepseek-chat")
+    model = llm_cfg.get("model", "mimo-v2.6-flash")
     timeout = llm_cfg.get("timeout", 30)
 
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M (%A)")
@@ -177,9 +189,9 @@ def generate_daily_report_md(
 
     cfg = _load_config_data(config)
     llm_cfg = cfg.get("llm", {})
-    api_url = llm_cfg.get("api_url", "https://api.deepseek.com/chat/completions")
+    api_url = _normalize_api_url(llm_cfg.get("api_url", "https://api.xiaomimimo.com/v1/chat/completions"))
     api_key = llm_cfg.get("api_key", "")
-    model = llm_cfg.get("model", "deepseek-chat")
+    model = llm_cfg.get("model", "mimo-v2.6-flash")
     timeout = llm_cfg.get("timeout", 45)
 
     today_str = datetime.now().strftime("%Y-%m-%d %A")

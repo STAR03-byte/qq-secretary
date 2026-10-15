@@ -5,8 +5,8 @@
     "model": "mimo-v2.6-flash",
     "timeout": 30
   },
-  "wecom": {
-    "webhook_url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=YOUR_WECOM_BOT_KEY"
+  "feishu": {
+    "webhook_url": "https://open.feishu.cn/open-apis/bot/v2/hook/YOUR_FEISHU_BOT_KEY"
   },
   "user_profile": {
     "name": "Star",
